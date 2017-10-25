@@ -1,7 +1,7 @@
 /*
  * DesktopServicesFeaturePlugin.cpp - implementation of DesktopServicesFeaturePlugin class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -88,7 +88,7 @@ bool DesktopServicesFeaturePlugin::startMasterFeature( const Feature& feature,
 		QUrl url( urlAddress, QUrl::TolerantMode );
 		if( url.scheme().isEmpty() )
 		{
-			url = QUrl( "http://" + urlAddress, QUrl::TolerantMode );
+			url = QUrl( QStringLiteral("http://") + urlAddress, QUrl::TolerantMode );
 		}
 
 		if( urlAddress.isEmpty() == false && url.isValid() )
@@ -196,7 +196,7 @@ void DesktopServicesFeaturePlugin::openWebsite( const QUrl& url )
 #ifdef VEYON_BUILD_LINUX
 		launcher = QStringLiteral("xdg-open ");
 #elif defined(VEYON_BUILD_WIN32)
-		launcher = QStringLiteral("cmd /c start ");
+		launcher = QStringLiteral("explorer ");
 #else
 #warning unsupported platform
 #endif

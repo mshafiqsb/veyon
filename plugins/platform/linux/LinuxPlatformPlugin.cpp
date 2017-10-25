@@ -1,7 +1,7 @@
 /*
  * LinuxPlatformPlugin.cpp - implementation of LinuxPlatformPlugin class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -28,7 +28,7 @@
 LinuxPlatformPlugin::LinuxPlatformPlugin( QObject* parent ) :
 	QObject( parent ),
 	m_linuxNetworkFunctions(),
-	m_linuxUserSessionFunctions()
+	m_linuxUserInfoFunctions()
 {
 }
 

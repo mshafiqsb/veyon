@@ -1,7 +1,7 @@
 /*
  * ScreenLockFeaturePlugin.cpp - implementation of ScreenLockFeaturePlugin class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -34,10 +34,10 @@ ScreenLockFeaturePlugin::ScreenLockFeaturePlugin( QObject* parent ) :
 	m_screenLockFeature( Feature::Mode | Feature::AllComponents,
 						 Feature::Uid( "ccb535a2-1d24-4cc1-a709-8b47d2b2ac79" ),
 						 tr( "Lock" ), tr( "Unlock" ),
-						 tr( "To have all user's full attention you can lock "
+						 tr( "To reclaim all user's full attention you can lock "
 							 "their computers using this button. "
 							 "In this mode all input devices are locked and "
-							 "the screen is black." ),
+							 "the screens are blacked." ),
 						 QStringLiteral(":/screenlock/system-lock-screen.png") ),
 	m_features( { m_screenLockFeature } ),
 	m_lockWidget( nullptr )

@@ -1,7 +1,7 @@
 /*
  * VeyonCore.cpp - implementation of Veyon Core
  *
- * Copyright (c) 2006-2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2006-2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -144,6 +144,7 @@ VeyonCore::VeyonCore( QCoreApplication* application, const QString& appComponent
 	initAuthentication( AuthenticationCredentials::None );
 
 	m_pluginManager = new PluginManager( this );
+	m_pluginManager->loadPlugins();
 
 	m_accessControlDataBackendManager = new AccessControlDataBackendManager( *m_pluginManager );
 	m_platformPluginManager = new PlatformPluginManager( *m_pluginManager );

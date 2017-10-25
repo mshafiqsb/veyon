@@ -26,10 +26,6 @@
         <translation>Versión:</translation>
     </message>
     <message>
-        <source>Copyright © 2004-2017 Tobias Doerffel / Veyon Solutions</source>
-        <translation>Copyright © 2004-2017 Tobias Doerffel / Veyon Solutions</translation>
-    </message>
-    <message>
         <source>Website:</source>
         <translation>Sitio web:</translation>
     </message>
@@ -42,6 +38,10 @@ If you&apos;re interested in translating Veyon into your local or another langua
 José Antonio Muñoz Jiménez &lt;jamj2000 at gmail dot com&gt;
 
 Si deseas mejorar la traducción actual, por favor, ¡contacta con un desarrollador de Veyon!</translation>
+    </message>
+    <message>
+        <source>About %1 %2</source>
+        <translation>Acerca de %1 %2</translation>
     </message>
 </context>
 <context>
@@ -378,7 +378,7 @@ Si deseas mejorar la traducción actual, por favor, ¡contacta con un desarrolla
     <name>ComputerControlServer</name>
     <message>
         <source>%1 Service %2 at %3:%4</source>
-        <translation>%1 Servicio %2 en %3:%4</translation>
+        <translation> Servicio %1 %2 en %3:%4</translation>
     </message>
     <message>
         <source>Authentication error</source>
@@ -417,7 +417,7 @@ Si deseas mejorar la traducción actual, por favor, ¡contacta con un desarrolla
     </message>
     <message>
         <source>Service unreachable or not running</source>
-        <translation>Servicio inaccesible o no ejecutádose</translation>
+        <translation>Servicio inaccesible o no ejecutándose</translation>
     </message>
     <message>
         <source>Authentication failed or access denied</source>
@@ -677,16 +677,8 @@ Si deseas mejorar la traducción actual, por favor, ¡contacta con un desarrolla
         <translation>Detener demo</translation>
     </message>
     <message>
-        <source>In this mode your screen is being displayed on all computers. Furthermore the users aren&apos;t able to do something else as all input devices are locked in this mode.</source>
-        <translation>En este modo, su pantalla se muestra en todos los equipos. Además, los usuarios no pueden hacer otra cosa ya que todos los dispositivos de entrada están bloqueados en este modo.</translation>
-    </message>
-    <message>
         <source>Window demo</source>
         <translation>Demo en ventana</translation>
-    </message>
-    <message>
-        <source>In this mode your screen being displayed in a window on all computers. The users are able to switch to other windows and thus can continue to work.</source>
-        <translation>En este modo, la pantalla se mostrará en una ventana de todos los ordenadores. Los usuarios pueden cambiar a otras ventanas y así pueden seguir trabajando.</translation>
     </message>
     <message>
         <source>Give a demonstration by screen broadcasting</source>
@@ -697,8 +689,12 @@ Si deseas mejorar la traducción actual, por favor, ¡contacta con un desarrolla
         <translation>Servidor demo</translation>
     </message>
     <message>
-        <source>Demo client</source>
-        <translation>Cliente demo</translation>
+        <source>In this mode your screen is being displayed in fullscreen mode on all computers while input devices of the users are locked.</source>
+        <translation>En este modo, la pantalla se muestra en modo de pantalla completa en todos los equipos mientras los dispositivos de entrada de los usuarios están bloqueados.</translation>
+    </message>
+    <message>
+        <source>In this mode your screen being displayed in a window on all computers. The users are able to switch to other windows as needed.</source>
+        <translation>En este modo, la pantalla se mostrará en una ventana de todos los ordenadores. Los usuarios pueden cambiar a otras ventanas según sea necesario.</translation>
     </message>
 </context>
 <context>
@@ -771,6 +767,13 @@ Si deseas mejorar la traducción actual, por favor, ¡contacta con un desarrolla
     <message>
         <source>Password:</source>
         <translation>Contraseña:</translation>
+    </message>
+</context>
+<context>
+    <name>FeatureControl</name>
+    <message>
+        <source>Feature control</source>
+        <translation>Control de funciones</translation>
     </message>
 </context>
 <context>
@@ -1246,14 +1249,6 @@ La parte de clave pública se utiliza en los equipos cliente para verificar que 
         <translation>Atributo configurado para inicio de sesión de usuario o nombre de equipo (OpenLDAP)</translation>
     </message>
     <message>
-        <source>Dedicated computer groups</source>
-        <translation>Grupos de equipos dedicados</translation>
-    </message>
-    <message>
-        <source>Common attribute</source>
-        <translation>Atributo común</translation>
-    </message>
-    <message>
         <source>List all groups of a user</source>
         <translation>Listar todos los grupos de un usuario</translation>
     </message>
@@ -1566,10 +1561,6 @@ La parte de clave pública se utiliza en los equipos cliente para verificar que 
         <translation>Árbol de grupo de equipos</translation>
     </message>
     <message>
-        <source>Aggregate computers in a room using:</source>
-        <translation>Agregar equipos a un aula usando:</translation>
-    </message>
-    <message>
         <source>computer group tree</source>
         <translation>árbol de grupo de equipos</translation>
     </message>
@@ -1632,6 +1623,54 @@ La parte de clave pública se utiliza en los equipos cliente para verificar que 
     <message>
         <source>Integration tests</source>
         <translation>Pruebas de integración</translation>
+    </message>
+    <message>
+        <source>Computer room attribute</source>
+        <translation>Atributo de aula</translation>
+    </message>
+    <message>
+        <source>e.g. objectClass=container or objectClass=organizationalUnit</source>
+        <translation>p.ej. objectClass=container o objectClass=organizationalUnit</translation>
+    </message>
+    <message>
+        <source>Aggregate computers in a room via:</source>
+        <translation>Agregar equipos a un aula a través de:</translation>
+    </message>
+    <message>
+        <source>Computer groups</source>
+        <translation>Grupos de equipos</translation>
+    </message>
+    <message>
+        <source>Computer room attribute in computer objects</source>
+        <translation>Atributo de aula en objetos de equipo</translation>
+    </message>
+    <message>
+        <source>Test not applicable</source>
+        <translation>Prueba no aplicable</translation>
+    </message>
+    <message>
+        <source>Computer room name attribute</source>
+        <translation>Atributo de nombre de aula</translation>
+    </message>
+    <message>
+        <source>e.g. name or description</source>
+        <translation>p.ej. nombre o descripción</translation>
+    </message>
+    <message>
+        <source>Filter for computer containers</source>
+        <translation>Filtro para contenedores de ordenadores</translation>
+    </message>
+    <message>
+        <source>Computer containers or OUs</source>
+        <translation>Contenedores de computadoras u OUs</translation>
+    </message>
+    <message>
+        <source>Please change the computer room settings to use computer groups or computer containers as computer rooms. Then the specified attribute instead of the common name of computer groups or container objects will be queried. Otherwise you don&apos;t need to configure this attribute.</source>
+        <translation>Por favor, cambie la configuración del aula para usar grupos de equipos o contenedores de equipos como aulas. Después, se consultará el atributo especificado en lugar del nombre común de los grupos de equipos o de los objetos contenedor. De lo contrario, no es necesario configurar este atributo.</translation>
+    </message>
+    <message>
+        <source>Please change the computer room settings below to use computer containers as computer rooms. Otherwise you don&apos;t need to configure this filter.</source>
+        <translation>Por favor, cambie la configuración del aula para usar los contenedores de equipos como aulas. De lo contrario, no es necesario configurar este filtro.</translation>
     </message>
 </context>
 <context>
@@ -1913,7 +1952,7 @@ La parte de clave pública se utiliza en los equipos cliente para verificar que 
         <source>When encountering bugs or other misbehaviour in Veyon it is important to inform the developers about them, so that the bugs can be fixed in future releases. This page allows you to submit a helpful bug report easily.
 
 If the bug is not reproducible, skip step 1) - 3).</source>
-        <translation>Al encontrar errores o cualquier otro mal comportamiento en Veyon, es importante informar a los desarrolladores sobre ellos, para que los errores se puedan arreglar en versiones futuras. Esta página le permite enviar un de forma fácil un informe de errores útil.
+        <translation>Al encontrar errores o cualquier otro mal comportamiento en Veyon, es importante informar a los desarrolladores sobre ellos, para que los errores se puedan arreglar en versiones futuras. Esta página le permite enviar de forma fácil un informe de errores útil.
 
 Si el error no es reproducible, omita los pasos 1) - 3).</translation>
     </message>
@@ -1922,7 +1961,7 @@ Si el error no es reproducible, omita los pasos 1) - 3).</translation>
 &lt;br/&gt;
 &lt;br/&gt;
 Note: if the bug involves both a master and client computer, attach bug report archives for both computers.</source>
-        <translation>Visite el &lt;a href=&quot;https://github.com/Veyon/veyon/issues&quot;&gt; seguimiento de errores de veyon&lt;/a&gt;, inicie un nuevo error, describa lo que hizo en el paso 3) y adjunte el archivo que guardó en el paso 4).&lt;/p&gt;
+        <translation>Visite el &lt;a href=&quot;https://github.com/Veyon/veyon/issues&quot;&gt; seguimiento de incidencias de veyon&lt;/a&gt;, inicie una nueva incidencia, describa lo que hizo en el paso 3) y adjunte el archivo que guardó en el paso 4).&lt;/p&gt;
 &lt;br/&gt;
 &lt;br/&gt;
 Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar archivos de informe de errores para ambos equipos.</translation>
@@ -1965,7 +2004,7 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
     </message>
     <message>
         <source>%1 bug report (*.json)</source>
-        <translation>Informe de erro %1 (*.json)</translation>
+        <translation>Informe de error de %1 (*.json)</translation>
     </message>
     <message>
         <source>%1 bug report archive saved</source>
@@ -2023,6 +2062,14 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
         <source>Do you really want to reset the local configuration and revert all settings to their defaults?</source>
         <translation>¿Realmente desea restablecer la configuración local y revertir todas las configuraciones a sus valores predeterminados?</translation>
     </message>
+    <message>
+        <source>Search users and computers</source>
+        <translation>Buscar usuarios y equipos</translation>
+    </message>
+    <message>
+        <source>Adjust optimal size</source>
+        <translation>Ajustar el tamaño óptimo</translation>
+    </message>
 </context>
 <context>
     <name>MasterConfigurationPage</name>
@@ -2037,10 +2084,6 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
     <message>
         <source>User configuration</source>
         <translation>Configuración de usuario</translation>
-    </message>
-    <message>
-        <source>User interface &amp;&amp; behaviour</source>
-        <translation>Interfaz de usuario &amp;&amp; comportamiento</translation>
     </message>
     <message>
         <source>Feature on computer double click:</source>
@@ -2063,22 +2106,6 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
         <translation>Funciones deshabilitadas</translation>
     </message>
     <message>
-        <source>Only show current room in computer room management</source>
-        <translation>Mostrar sólo el aula actual en la gestión de aulas</translation>
-    </message>
-    <message>
-        <source>Hide empty rooms from computer room management</source>
-        <translation>Ocultar aulas vacías en la gestión de aulas</translation>
-    </message>
-    <message>
-        <source>Allow adding rooms to computer room management manually</source>
-        <translation>Permitir añadir aulas manualmente a la gestión de aulas</translation>
-    </message>
-    <message>
-        <source>Hide local computer in computer room management</source>
-        <translation>Ocultar equipo local en la gestión de aulas</translation>
-    </message>
-    <message>
         <source>Perform access control at program start</source>
         <translation>Realizar el control de acceso al inicio del programa</translation>
     </message>
@@ -2087,16 +2114,60 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
         <translation>Capturas</translation>
     </message>
     <message>
-        <source>Hide computer filter field in computer room management</source>
-        <translation>Ocultar el campo de filtro de equipo en la gestión de aula</translation>
-    </message>
-    <message>
         <source>&lt;no feature&gt;</source>
         <translation>&lt;ninguna característica&gt;</translation>
     </message>
     <message>
         <source>Automatically adjust computer thumbnail size at start</source>
         <translation>Ajustar automáticamente el tamaño de la imagen miniatura al inicio</translation>
+    </message>
+    <message>
+        <source>Basic settings</source>
+        <translation>Ajustes básicos</translation>
+    </message>
+    <message>
+        <source>Behaviour</source>
+        <translation>Comportamiento</translation>
+    </message>
+    <message>
+        <source>Enforce selected mode for client computers</source>
+        <translation>Aplicar el modo seleccionado para los equipos cliente</translation>
+    </message>
+    <message>
+        <source>Only show current room</source>
+        <translation>Mostrar sólo el aula actual</translation>
+    </message>
+    <message>
+        <source>Allow adding rooms manually</source>
+        <translation>Permitir añadir aulas manualmente</translation>
+    </message>
+    <message>
+        <source>Hide local computer</source>
+        <translation>Ocultar equipo local</translation>
+    </message>
+    <message>
+        <source>Hide empty rooms</source>
+        <translation>Ocultar aulas vacías</translation>
+    </message>
+    <message>
+        <source>Hide computer filter field</source>
+        <translation>Ocultar campo de filtro de equipo</translation>
+    </message>
+    <message>
+        <source>Computer management</source>
+        <translation>Gestión de equipo</translation>
+    </message>
+    <message>
+        <source>Always open at start</source>
+        <translation>Siempre abierto al inicio</translation>
+    </message>
+    <message>
+        <source>Actions such as rebooting or powering down computers</source>
+        <translation>Acciones como reiniciar o apagar equipos</translation>
+    </message>
+    <message>
+        <source>Show confirmation dialog for potential dangerous actions</source>
+        <translation>Mostrar diálogo de confirmación de posibles acciones peligrosas</translation>
     </message>
 </context>
 <context>
@@ -2177,6 +2248,22 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
     <message>
         <source>Power on/down or reboot a computer</source>
         <translation>Encender/apagar o reiniciar un equipo</translation>
+    </message>
+    <message>
+        <source>Confirm reboot</source>
+        <translation>Confirmar reinicio</translation>
+    </message>
+    <message>
+        <source>Confirm power down</source>
+        <translation>Confirmar apagado</translation>
+    </message>
+    <message>
+        <source>Do you really want to reboot the selected computers?</source>
+        <translation>¿Realmente desea reiniciar los equipos seleccionados?</translation>
+    </message>
+    <message>
+        <source>Do you really want to power down the selected computer?</source>
+        <translation>¿Realmente desea apagar el equipo seleccionado?</translation>
     </message>
 </context>
 <context>
@@ -2388,12 +2475,12 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
         <translation>Desbloquear</translation>
     </message>
     <message>
-        <source>To have all user&apos;s full attention you can lock their computers using this button. In this mode all input devices are locked and the screen is black.</source>
-        <translation>Para tener toda la atención del usuario puede bloquear sus equipos con este botón. En este modo, todos los dispositivos de entrada están bloqueados y la pantalla es negra.</translation>
-    </message>
-    <message>
         <source>Lock screen and input devices of a computer</source>
         <translation>Bloquear la pantalla y los dispositivos de entrada de un equipo</translation>
+    </message>
+    <message>
+        <source>To reclaim all user&apos;s full attention you can lock their computers using this button. In this mode all input devices are locked and the screens are blacked.</source>
+        <translation>Para recuperar toda la atención del usuario puede bloquear sus equipos con este botón. En este modo, todos los dispositivos de entrada están bloqueados y las pantallas son inhabilitadas .</translation>
     </message>
 </context>
 <context>
@@ -2669,6 +2756,10 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
         <source>Builtin UltraVNC server configuration</source>
         <translation>Configuración de servidor UltraVNC incorporado</translation>
     </message>
+    <message>
+        <source>Enable dual monitor support</source>
+        <translation>Habilitar el soporte de doble monitor</translation>
+    </message>
 </context>
 <context>
     <name>UserConfig</name>
@@ -2694,6 +2785,14 @@ Nota: si el error implica a la vez a un equipo maestro y a uno cliente, adjuntar
     <message>
         <source>Click this button to logout users from all computers.</source>
         <translation>Haga clic en este botón para cerrar sesión a los usuarios de todos los equipos.</translation>
+    </message>
+    <message>
+        <source>Confirm user logout</source>
+        <translation>Confirmar el cierre de sesión del usuario</translation>
+    </message>
+    <message>
+        <source>Do you really want to logout the selected users?</source>
+        <translation>¿Realmente desea cerrar la sesión con los usuarios seleccionados?</translation>
     </message>
 </context>
 <context>

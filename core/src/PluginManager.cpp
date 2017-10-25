@@ -1,7 +1,7 @@
 /*
  * PluginManager.cpp - implementation of the PluginManager class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -35,39 +35,6 @@ PluginManager::PluginManager( QObject* parent ) :
 	m_pluginInterfaces(),
 	m_pluginObjects()
 {
-	// adds a search path relative to the main executable to if the path exists.
-	auto addRelativeIfExists = [this]( const QString& path )
-	{
-		QDir dir(qApp->applicationDirPath());
-		if( !path.isEmpty() && dir.cd( path ) )
-		{
-			QDir::addSearchPath( QStringLiteral( "plugins" ), dir.absolutePath() );
-		}
-
-	};
-
-#ifdef Q_OS_WIN
-	addRelativeIfExists( QStringLiteral( "plugins" ) );
-	const QStringList nameFilters( QStringLiteral( "*.dll" ) );
-#else
-	addRelativeIfExists( QStringLiteral( "../lib/veyon" ) );
-	addRelativeIfExists( QStringLiteral( "../lib64/veyon" ) );  // for some 64bits linux distributions, mainly Fedora 64bit
-	const QStringList nameFilters( QStringLiteral( "*.so" ) );
-#endif
-
-	auto plugins = QDir( QStringLiteral( "plugins:" ) ).entryInfoList( nameFilters );
-	for( const auto& fileInfo : plugins )
-	{
-		auto pluginObject = QPluginLoader( fileInfo.filePath() ).instance();
-		auto pluginInterface = qobject_cast<PluginInterface *>( pluginObject );
-
-		if( pluginObject && pluginInterface )
-		{
-			qDebug() << "PluginManager: discovered plugin" << pluginInterface->name() << "at" << fileInfo.filePath();
-			m_pluginInterfaces += pluginInterface;	// clazy:exclude=reserve-candidates
-			m_pluginObjects += pluginObject;		// clazy:exclude=reserve-candidates
-		}
-	}
 }
 
 
@@ -90,7 +57,7 @@ PluginUidList PluginManager::pluginUids() const
 
 	pluginUidList.reserve( m_pluginInterfaces.size() );
 
-	for( auto pluginInterface : m_pluginInterfaces )
+	for( auto pluginInterface : qAsConst( m_pluginInterfaces ) )
 	{
 		pluginUidList += pluginInterface->uid();
 	}
@@ -128,4 +95,48 @@ QString PluginManager::pluginName( Plugin::Uid pluginUid ) const
 	}
 
 	return QString();
+}
+
+
+
+void PluginManager::loadPlugins()
+{
+	// adds a search path relative to the main executable to if the path exists.
+	auto addRelativeIfExists = [this]( const QString& path )
+	{
+		QDir dir(qApp->applicationDirPath());
+		if( !path.isEmpty() && dir.cd( path ) )
+		{
+			const auto pluginSearchPath = dir.absolutePath();
+			qDebug() << "Adding plugin search path" << pluginSearchPath;
+			QDir::addSearchPath( QStringLiteral( "plugins" ), pluginSearchPath );
+		}
+
+	};
+
+#ifdef Q_OS_WIN
+	addRelativeIfExists( QStringLiteral( "plugins" ) );
+	const QStringList nameFilters( QStringLiteral( "*.dll" ) );
+#else
+	addRelativeIfExists( QStringLiteral( "../" ) + QStringLiteral( VEYON_LIB_DIR ) );
+	addRelativeIfExists( QStringLiteral( "../lib/veyon" ) );
+	addRelativeIfExists( QStringLiteral( "../lib64/veyon" ) );  // for some 64bits linux distributions, mainly Fedora 64bit
+	const QStringList nameFilters( QStringLiteral( "*.so" ) );
+#endif
+
+	auto plugins = QDir( QStringLiteral( "plugins:" ) ).entryInfoList( nameFilters );
+	for( const auto& fileInfo : plugins )
+	{
+		auto pluginObject = QPluginLoader( fileInfo.filePath() ).instance();
+		auto pluginInterface = qobject_cast<PluginInterface *>( pluginObject );
+
+		if( pluginObject && pluginInterface )
+		{
+			qDebug() << "PluginManager: discovered plugin" << pluginInterface->name() << "at" << fileInfo.filePath();
+			m_pluginInterfaces += pluginInterface;	// clazy:exclude=reserve-candidates
+			m_pluginObjects += pluginObject;		// clazy:exclude=reserve-candidates
+		}
+	}
+
+	emit pluginsLoaded();
 }

@@ -1,7 +1,7 @@
 /*
  * MainWindow.cpp - implementation of MainWindow class
  *
- * Copyright (c) 2010-2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2010-2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -21,8 +21,6 @@
  * Boston, MA 02111-1307, USA.
  *
  */
-
-#include "VeyonCore.h"
 
 #include <QDir>
 #include <QProcess>
@@ -354,6 +352,10 @@ void MainWindow::loadConfigurationPagePlugins()
 			ui->pageSelector->addItem( item );
 		}
 	}
+
+	// adjust minimum size
+	ui->pageSelector->setMinimumSize( ui->pageSelector->sizeHintForColumn(0) + 3 * ui->pageSelector->spacing(),
+									  ui->pageSelector->minimumHeight() );
 }
 
 

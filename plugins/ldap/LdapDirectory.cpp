@@ -1,7 +1,7 @@
 /*
  * LdapDirectory.cpp - class representing the LDAP directory and providing access to directory entries
  *
- * Copyright (c) 2016-2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2016-2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -67,8 +67,10 @@ public:
 			return entries;
 		}
 
+		const auto escapedFilter = QString( filter ).replace( QStringLiteral("\\"), QStringLiteral("\\\\") );
+
 		int result = -1;
-		int id = operation.search( KLDAP::LdapDN( dn ), scope, filter, QStringList( attribute ) );
+		int id = operation.search( KLDAP::LdapDN( dn ), scope, escapedFilter, QStringList( attribute ) );
 
 		if( id != -1 )
 		{
@@ -139,8 +141,10 @@ public:
 			return distinguishedNames;
 		}
 
+		const auto escapedFilter = QString( filter ).replace( QStringLiteral("\\"), QStringLiteral("\\\\") );
+
 		int result = -1;
-		int id = operation.search( KLDAP::LdapDN( dn ), scope, filter, QStringList() );
+		int id = operation.search( KLDAP::LdapDN( dn ), scope, escapedFilter, QStringList() );
 
 		if( id != -1 )
 		{
@@ -238,7 +242,7 @@ public:
 	QString computerParentsFilter;
 
 	bool identifyGroupMembersByNameAttribute;
-	bool computerRoomMembersByParent;
+	bool computerRoomMembersByContainer;
 	bool computerRoomMembersByAttribute;
 	QString computerRoomAttribute;
 
@@ -446,7 +450,7 @@ QStringList LdapDirectory::computerRooms(const QString &filterValue)
 											constructQueryFilter( d->computerRoomAttribute, filterValue, d->computersFilter ),
 											d->defaultSearchScope );
 	}
-	else if( d->computerRoomMembersByParent )
+	else if( d->computerRoomMembersByContainer )
 	{
 		computerRooms = d->queryAttributes( d->computersDn,
 											d->computerRoomNameAttribute,
@@ -479,7 +483,7 @@ QStringList LdapDirectory::groupMembers(const QString &groupDn)
 
 QStringList LdapDirectory::groupsOfUser(const QString &userDn)
 {
-	QString userId = groupMemberUserIdentification( userDn );
+	const auto userId = groupMemberUserIdentification( userDn );
 
 	return d->queryDistinguishedNames( d->groupsDn,
 									   constructQueryFilter( d->groupMemberAttribute, userId, d->userGroupsFilter ),
@@ -490,7 +494,7 @@ QStringList LdapDirectory::groupsOfUser(const QString &userDn)
 
 QStringList LdapDirectory::groupsOfComputer(const QString &computerDn)
 {
-	QString computerId = groupMemberComputerIdentification( computerDn );
+	const auto computerId = groupMemberComputerIdentification( computerDn );
 
 	return d->queryDistinguishedNames( d->computerGroupsDn.isEmpty() ? d->groupsDn : d->computerGroupsDn,
 									   constructQueryFilter( d->groupMemberAttribute, computerId, d->computerGroupsFilter ),
@@ -505,12 +509,12 @@ QStringList LdapDirectory::computerRoomsOfComputer(const QString &computerDn)
 	{
 		return d->queryAttributes( computerDn, d->computerRoomAttribute );
 	}
-	else if( d->computerRoomMembersByParent )
+	else if( d->computerRoomMembersByContainer )
 	{
 		return d->queryAttributes( parentDn( computerDn ), d->computerRoomNameAttribute );
 	}
 
-	QString computerId = groupMemberComputerIdentification( computerDn );
+	const auto computerId = groupMemberComputerIdentification( computerDn );
 
 	return d->queryAttributes( d->computerGroupsDn.isEmpty() ? d->groupsDn : d->computerGroupsDn,
 							   d->computerRoomNameAttribute,
@@ -594,7 +598,7 @@ QStringList LdapDirectory::computerRoomMembers(const QString &computerRoomName)
 										   constructQueryFilter( d->computerRoomAttribute, computerRoomName, d->computersFilter ),
 										   d->defaultSearchScope );
 	}
-	else if( d->computerRoomMembersByParent )
+	else if( d->computerRoomMembersByContainer )
 	{
 		const auto roomDnFilter = constructQueryFilter( d->computerRoomNameAttribute, computerRoomName, d->computerParentsFilter );
 		const auto roomDns = d->queryDistinguishedNames( d->computersDn, roomDnFilter, d->defaultSearchScope );
@@ -668,12 +672,13 @@ bool LdapDirectory::reconnect( const QUrl &url )
 		d->baseDn = m_configuration.ldapBaseDn();
 	}
 
-	d->usersDn = m_configuration.ldapUserTree() + "," + d->baseDn;
-	d->groupsDn = m_configuration.ldapGroupTree() + "," + d->baseDn;
-	d->computersDn = m_configuration.ldapComputerTree() + "," + d->baseDn;
+	d->usersDn = constructSubDn( m_configuration.ldapUserTree(), d->baseDn );
+	d->groupsDn = constructSubDn( m_configuration.ldapGroupTree(), d->baseDn );
+	d->computersDn = constructSubDn( m_configuration.ldapComputerTree(), d->baseDn );
+
 	if( m_configuration.ldapComputerGroupTree().isEmpty() == false )
 	{
-		d->computerGroupsDn = m_configuration.ldapComputerGroupTree() + "," + d->baseDn;
+		d->computerGroupsDn = constructSubDn( m_configuration.ldapComputerGroupTree(), d->baseDn );
 	}
 	else
 	{
@@ -704,15 +709,27 @@ bool LdapDirectory::reconnect( const QUrl &url )
 	d->userGroupsFilter = m_configuration.ldapUserGroupsFilter();
 	d->computersFilter = m_configuration.ldapComputersFilter();
 	d->computerGroupsFilter = m_configuration.ldapComputerGroupsFilter();
-	d->computerParentsFilter = m_configuration.ldapComputerParentsFilter();
+	d->computerParentsFilter = m_configuration.ldapComputerContainersFilter();
 
 	d->identifyGroupMembersByNameAttribute = m_configuration.ldapIdentifyGroupMembersByNameAttribute();
 
-	d->computerRoomMembersByParent = m_configuration.ldapComputerRoomMembersByParent();
+	d->computerRoomMembersByContainer = m_configuration.ldapComputerRoomMembersByContainer();
 	d->computerRoomMembersByAttribute = m_configuration.ldapComputerRoomMembersByAttribute();
 	d->computerRoomAttribute = m_configuration.ldapComputerRoomAttribute();
 
 	return true;
+}
+
+
+
+QString LdapDirectory::constructSubDn( const QString& subtree, const QString& baseDn )
+{
+	if( subtree.isEmpty() )
+	{
+		return baseDn;
+	}
+
+	return subtree + "," + baseDn;
 }
 
 

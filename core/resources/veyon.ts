@@ -28,10 +28,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Copyright © 2004-2017 Tobias Doerffel / Veyon Solutions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Website:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43,6 +39,10 @@ If you&apos;re interested in translating Veyon into your local or another langua
     </message>
     <message>
         <source>About %1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Support Veyon project with a donation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -679,15 +679,7 @@ If you&apos;re interested in translating Veyon into your local or another langua
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>In this mode your screen is being displayed on all computers. Furthermore the users aren&apos;t able to do something else as all input devices are locked in this mode.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Window demo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>In this mode your screen being displayed in a window on all computers. The users are able to switch to other windows and thus can continue to work.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -696,6 +688,14 @@ If you&apos;re interested in translating Veyon into your local or another langua
     </message>
     <message>
         <source>Demo server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In this mode your screen is being displayed in fullscreen mode on all computers while input devices of the users are locked.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In this mode your screen being displayed in a window on all computers. The users are able to switch to other windows as needed.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1611,19 +1611,7 @@ The public key part is used on the client computers to verify that any incoming 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>e.g. cn or description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Computer room attribute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Computer group/room name attribute</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Filter for computer parents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1639,10 +1627,6 @@ The public key part is used on the client computers to verify that any incoming 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Parent objects of computer objects (e.g. OUs or containers)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Computer room attribute in computer objects</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1651,11 +1635,27 @@ The public key part is used on the client computers to verify that any incoming 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please change the computer room settings to use computer groups or parent objects of computer objects as computer rooms. Then the specified attribute instead of the common name of computer groups or parent objects will be queried. Otherwise you don&apos;t need to configure this attribute.</source>
+        <source>Computer room name attribute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please change the computer room settings below to use parent objects of computer objects as computer rooms. Otherwise you don&apos;t need to configure this filter.</source>
+        <source>e.g. name or description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filter for computer containers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Computer containers or OUs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please change the computer room settings to use computer groups or computer containers as computer rooms. Then the specified attribute instead of the common name of computer groups or container objects will be queried. Otherwise you don&apos;t need to configure this attribute.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please change the computer room settings below to use computer containers as computer rooms. Otherwise you don&apos;t need to configure this filter.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1756,6 +1756,10 @@ The public key part is used on the client computers to verify that any incoming 
     </message>
     <message>
         <source>New computer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rooms &amp; computers</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2067,10 +2071,6 @@ Note: if the bug involves both a master and client computer, attach bug report a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>User interface &amp;&amp; behaviour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Feature on computer double click:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2091,31 +2091,11 @@ Note: if the bug involves both a master and client computer, attach bug report a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Only show current room in computer room management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide empty rooms from computer room management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow adding rooms to computer room management manually</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide local computer in computer room management</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Perform access control at program start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Screenshots</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide computer filter field in computer room management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2164,6 +2144,14 @@ Note: if the bug involves both a master and client computer, attach bug report a
     </message>
     <message>
         <source>Always open at start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actions such as rebooting or powering down computers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show confirmation dialog for potential dangerous actions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2244,6 +2232,22 @@ Note: if the bug involves both a master and client computer, attach bug report a
     </message>
     <message>
         <source>Power on/down or reboot a computer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm power down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you really want to reboot the selected computers?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you really want to power down the selected computer?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2456,11 +2460,11 @@ Note: if the bug involves both a master and client computer, attach bug report a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>To have all user&apos;s full attention you can lock their computers using this button. In this mode all input devices are locked and the screen is black.</source>
+        <source>Lock screen and input devices of a computer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Lock screen and input devices of a computer</source>
+        <source>To reclaim all user&apos;s full attention you can lock their computers using this button. In this mode all input devices are locked and the screens are blacked.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2737,6 +2741,10 @@ Note: if the bug involves both a master and client computer, attach bug report a
         <source>Builtin UltraVNC server configuration</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enable dual monitor support</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserConfig</name>
@@ -2761,6 +2769,14 @@ Note: if the bug involves both a master and client computer, attach bug report a
     </message>
     <message>
         <source>Click this button to logout users from all computers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm user logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you really want to logout the selected users?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

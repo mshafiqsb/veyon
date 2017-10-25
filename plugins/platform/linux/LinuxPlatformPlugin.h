@@ -1,7 +1,7 @@
 /*
  * LinuxPlatformPlugin.h - declaration of LinuxPlatformPlugin class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -28,7 +28,7 @@
 #include "PluginInterface.h"
 #include "PlatformPluginInterface.h"
 #include "LinuxNetworkFunctions.h"
-#include "LinuxUserSessionFunctions.h"
+#include "LinuxUserInfoFunctions.h"
 
 class LinuxPlatformPlugin : public QObject, PlatformPluginInterface, PluginInterface
 {
@@ -66,7 +66,7 @@ public:
 
 	QString copyright() const override
 	{
-		return QStringLiteral( "Tobias Doerffel" );
+		return QStringLiteral( "Tobias Junghans" );
 	}
 
 	Plugin::Flags flags() const override
@@ -79,14 +79,14 @@ public:
 		return &m_linuxNetworkFunctions;
 	}
 
-	PlatformUserSessionFunctions* userSessionFunctions() override
+	PlatformUserInfoFunctions* userInfoFunctions() override
 	{
-		return &m_linuxUserSessionFunctions;
+		return &m_linuxUserInfoFunctions;
 	}
 
 private:
 	LinuxNetworkFunctions m_linuxNetworkFunctions;
-	LinuxUserSessionFunctions m_linuxUserSessionFunctions;
+	LinuxUserInfoFunctions m_linuxUserInfoFunctions;
 
 };
 

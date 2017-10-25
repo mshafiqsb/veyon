@@ -1,4 +1,4 @@
-# Veyon - Open Source computer monitoring and classroom management
+# Veyon - Free and Open Source computer monitoring and classroom management
 
 [![Build status](https://img.shields.io/travis/veyon/veyon.svg)](https://travis-ci.org/veyon/veyon)
 [![Latest stable release](https://img.shields.io/github/release/veyon/veyon.svg?maxAge=3600)](https://github.com/veyon/veyon/releases)
@@ -10,9 +10,10 @@
 
 ## What is Veyon?
 
-Veyon is an Open Source computer monitoring and classroom management software supporting Windows and Linux.
-It enables teachers to view and control computer labs and interact with students.
-Veyon is available in different languages and provides lots of useful features:
+Veyon is a free and Open Source software for computer monitoring and classroom
+management supporting Windows and Linux. It enables teachers to view and control
+computer labs and interact with students. Veyon is available in different
+languages and provides lots of useful features:
 
   * see what's going on in computer labs in overview mode and take screenshots
   * remote control computers to support and help users
@@ -29,7 +30,7 @@ Veyon is available in different languages and provides lots of useful features:
 
 ## License
 
-Copyright (c) 2004-2017 Tobias Doerffel / Veyon Solutions.
+Copyright (c) 2004-2017 Tobias Junghans / Veyon Solutions.
 
 See the file COPYING for the GNU GENERAL PUBLIC LICENSE.
 
@@ -124,7 +125,7 @@ On Fedora, this requires an additional dependency (rpm-build) which can be insta
 
 For generating a package you can run
     
-	make package
+	fakeroot make package
 
 Then you'll get something like veyon_x.y.z_arch.deb or veyon-x.y.z.arch.rpm
 
@@ -141,7 +142,7 @@ If you are interested in Veyon, its programming, artwork, testing or something l
 Before starting the implementation of a new feature, please always open an issue at https://github.com/veyon/veyon/issues to start a discussion about your intended implementation. There may be different ideas, improvements, hints or maybe an already ongoing work on this feature.
 
 
-## More Information
+## More information
 
 * http://veyon.io/
 * http://docs.veyon.io/

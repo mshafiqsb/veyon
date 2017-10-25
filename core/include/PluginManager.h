@@ -1,7 +1,7 @@
 /*
  * PluginManager.h - header for the PluginManager class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -59,10 +59,15 @@ public:
 
 	QString pluginName( Plugin::Uid pluginUid ) const;
 
+public slots:
+	void loadPlugins();
 
 private:
 	PluginInterfaceList m_pluginInterfaces;
 	QObjectList m_pluginObjects;
+
+signals:
+	void pluginsLoaded();
 
 };
 

@@ -1,7 +1,7 @@
 /*
  * PluginInterface.h - interface class for plugins
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -44,6 +44,10 @@ public:
 	virtual Plugin::Flags flags() const
 	{
 		return Plugin::NoFlags;
+	}
+	virtual void upgrade( const QString& oldVersion )
+	{
+		Q_UNUSED(oldVersion)
 	}
 
 };

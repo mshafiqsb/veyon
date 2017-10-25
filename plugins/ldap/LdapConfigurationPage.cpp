@@ -1,7 +1,7 @@
 /*
  * LdapConfigurationPage.cpp - implementation of the access control page
  *
- * Copyright (c) 2016-2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2016-2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -22,7 +22,6 @@
  *
  */
 
-#include <QDebug>
 #include <QInputDialog>
 #include <QMessageBox>
 
@@ -61,7 +60,7 @@ LdapConfigurationPage::LdapConfigurationPage( LdapConfiguration& configuration, 
 	CONNECT_BUTTON_SLOT( testUserGroupsFilter );
 	CONNECT_BUTTON_SLOT( testComputersFilter );
 	CONNECT_BUTTON_SLOT( testComputerGroupsFilter );
-	CONNECT_BUTTON_SLOT( testComputerParentsFilter );
+	CONNECT_BUTTON_SLOT( testComputerContainersFilter );
 
 	CONNECT_BUTTON_SLOT( testGroupsOfUser );
 	CONNECT_BUTTON_SLOT( testGroupsOfComputer );
@@ -365,9 +364,9 @@ void LdapConfigurationPage::testComputerRoomNameAttribute()
 	{
 		QMessageBox::information( this, tr( "Test not applicable" ),
 								  tr( "Please change the computer room settings to use computer groups "
-									  "or parent objects of computer objects as computer rooms. Then the "
+									  "or computer containers as computer rooms. Then the "
 									  "specified attribute instead of the common name of computer groups "
-									  "or parent objects will be queried. "
+									  "or container objects will be queried. "
 									  "Otherwise you don't need to configure this attribute." ) );
 		return;
 	}
@@ -425,13 +424,13 @@ void LdapConfigurationPage::testComputerGroupsFilter()
 
 
 
-void LdapConfigurationPage::testComputerParentsFilter()
+void LdapConfigurationPage::testComputerContainersFilter()
 {
-	if( m_configuration.ldapComputerRoomMembersByParent() == false )
+	if( m_configuration.ldapComputerRoomMembersByContainer() == false )
 	{
 		QMessageBox::information( this, tr( "Test not applicable" ),
-								  tr( "Please change the computer room settings below to use parent objects "
-									  "of computer objects as computer rooms. Otherwise you don't need to "
+								  tr( "Please change the computer room settings below to use computer containers "
+									  "as computer rooms. Otherwise you don't need to "
 									  "configure this filter." ) );
 		return;
 	}

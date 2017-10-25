@@ -1,7 +1,7 @@
 /*
  * main.cpp - main file for Veyon Control
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -161,9 +161,12 @@ int main( int argc, char **argv )
 
 	delete core;
 
+	int rc = -1;
+
 	if( module == QStringLiteral("help") )
 	{
 		qCritical( "%s", qPrintable( VeyonCore::tr( "Available modules:" ) ) );
+		rc = 0;
 	}
 	else
 	{
@@ -179,5 +182,5 @@ int main( int argc, char **argv )
 
 	delete app;
 
-	return -1;
+	return rc;
 }

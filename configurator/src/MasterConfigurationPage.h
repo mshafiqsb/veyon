@@ -1,7 +1,7 @@
 /*
  * MasterConfigurationPage.h - header for the MasterConfigurationPage class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -27,6 +27,8 @@
 
 #include "ConfigurationPage.h"
 #include "FeatureManager.h"
+
+class BuiltinFeatures;
 
 namespace Ui {
 class MasterConfigurationPage;
@@ -54,6 +56,8 @@ private:
 	void updateFeatureLists();
 
 	Ui::MasterConfigurationPage *ui;
+
+	BuiltinFeatures* m_builtinFeatures;
 
 	FeatureManager m_featureManager;
 	QStringList m_disabledFeatures;

@@ -1,7 +1,7 @@
 /*
  * InputDeviceBlocker.h - class for blocking all input devices
  *
- * Copyright (c) 2016-2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2016-2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -50,23 +50,21 @@ public:
 
 
 private:
-	enum {
-		XmodmapMaxStartTime = 5000
-	};
-
 	void enableInterception();
 	void disableInterception();
-	void saveKeyMapTable();
 	void setEmptyKeyMapTable();
 	void restoreKeyMapTable();
-	void xmodmapError();
 
 	static QMutex s_refCntMutex;
 	static int s_refCnt;
 
 	bool m_enabled;
 #ifdef VEYON_BUILD_LINUX
-	QByteArray m_origKeyTable;
+	void* m_origKeyTable;
+	int m_keyCodeMin;
+	int m_keyCodeMax;
+	int m_keyCodeCount;
+	int m_keySymsPerKeyCode;
 #endif
 #ifdef VEYON_BUILD_WIN32
 	InterceptionContext m_interceptionContext;

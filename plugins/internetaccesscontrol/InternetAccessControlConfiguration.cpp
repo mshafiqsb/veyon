@@ -1,7 +1,7 @@
 /*
- * LinuxUserSessionFunctions.cpp - implementation of LinuxUserSessionFunctions class
+ * InternetAccessControlConfiguration.cpp - INTERNET_ACCESS_CONTROL-specific configuration values
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -22,32 +22,14 @@
  *
  */
 
-#include <QProcess>
+#include "VeyonConfiguration.h"
+#include "InternetAccessControlConfiguration.h"
 
-#include "LinuxUserSessionFunctions.h"
 
-QStringList LinuxUserSessionFunctions::loggedOnUsers()
+InternetAccessControlConfiguration::InternetAccessControlConfiguration( QObject* parent ) :
+	Configuration::Proxy( &VeyonCore::config(), parent )
 {
-	QStringList users;
-
-	QProcess whoProcess;
-	whoProcess.start( QStringLiteral("who") );
-	whoProcess.waitForFinished( WhoProcessTimeout );
-
-	if( whoProcess.exitCode() != 0 )
-	{
-		return users;
-	}
-
-	const auto lines = whoProcess.readAll().split( '\n' );
-	for( const auto& line : lines )
-	{
-		const auto user = line.split( ' ' ).value( 0 );
-		if( user.isEmpty() == false && users.contains( user ) == false )
-		{
-			users.append( user ); // clazy:exclude=reserve-candidates
-		}
-	}
-
-	return users;
 }
+
+
+FOREACH_INTERNET_ACCESS_CONTROL_CONFIG_PROPERTY(IMPLEMENT_CONFIG_SET_PROPERTY)

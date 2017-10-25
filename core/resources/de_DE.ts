@@ -28,10 +28,6 @@
         <translation>Version:</translation>
     </message>
     <message>
-        <source>Copyright © 2004-2017 Tobias Doerffel / Veyon Solutions</source>
-        <translation>Copyright © 2004-2017 Tobias Doerffel / Veyon Solutions</translation>
-    </message>
-    <message>
         <source>Website:</source>
         <translation>Website:</translation>
     </message>
@@ -44,6 +40,10 @@ If you&apos;re interested in translating Veyon into your local or another langua
     <message>
         <source>About %1 %2</source>
         <translation>Über %1 %2</translation>
+    </message>
+    <message>
+        <source>Support Veyon project with a donation</source>
+        <translation>Veyon-Projekt mit einer Spende unterstützen</translation>
     </message>
 </context>
 <context>
@@ -679,16 +679,8 @@ If you&apos;re interested in translating Veyon into your local or another langua
         <translation>Demo beenden</translation>
     </message>
     <message>
-        <source>In this mode your screen is being displayed on all computers. Furthermore the users aren&apos;t able to do something else as all input devices are locked in this mode.</source>
-        <translation>In diesem Modus wird Ihr Bildschirm auf allen Computern angezeigt. Außerdem können die Benutzer nichts anderes tun, da ihre Eingabegeräte in diesem Modus gesperrt sind.</translation>
-    </message>
-    <message>
         <source>Window demo</source>
         <translation>Fenster-Demo</translation>
-    </message>
-    <message>
-        <source>In this mode your screen being displayed in a window on all computers. The users are able to switch to other windows and thus can continue to work.</source>
-        <translation>In diesem Modus wird Ihr Bildschirm auf allen Computern angezeigt. Die Benutzer können zu anderen Fenstern wechseln und können ihre Arbeit somit fortführen.</translation>
     </message>
     <message>
         <source>Give a demonstration by screen broadcasting</source>
@@ -697,6 +689,14 @@ If you&apos;re interested in translating Veyon into your local or another langua
     <message>
         <source>Demo server</source>
         <translation>Demo-Server</translation>
+    </message>
+    <message>
+        <source>In this mode your screen is being displayed in fullscreen mode on all computers while input devices of the users are locked.</source>
+        <translation>In diesem Modus wird Ihr Bildschirm als Vollbild auf allen Computern angezeigt während die Eingabegeräte der Benutzer gesperrt werden.</translation>
+    </message>
+    <message>
+        <source>In this mode your screen being displayed in a window on all computers. The users are able to switch to other windows as needed.</source>
+        <translation>In diesem Modus wird Ihr Bildschirm in einem Fenster auf allen Computern angezeigt. Die Benutzer können bei Bedarf zu anderen Fenstern wechseln.</translation>
     </message>
 </context>
 <context>
@@ -1627,20 +1627,8 @@ Der öffentliche Schlüssel wird auf den Clientcomputern genutzt, um für jede e
         <translation>Integrationstests</translation>
     </message>
     <message>
-        <source>e.g. cn or description</source>
-        <translation>z.B. cn oder description</translation>
-    </message>
-    <message>
         <source>Computer room attribute</source>
-        <translation>Computerraumattribut</translation>
-    </message>
-    <message>
-        <source>Computer group/room name attribute</source>
-        <translation>Attribut Name Computergruppen-/raum</translation>
-    </message>
-    <message>
-        <source>Filter for computer parents</source>
-        <translation>Filter für Computerobjekten übergeordnete Objekte</translation>
+        <translation>Attribut Computerraum</translation>
     </message>
     <message>
         <source>e.g. objectClass=container or objectClass=organizationalUnit</source>
@@ -1655,24 +1643,36 @@ Der öffentliche Schlüssel wird auf den Clientcomputern genutzt, um für jede e
         <translation>Computergruppen</translation>
     </message>
     <message>
-        <source>Parent objects of computer objects (e.g. OUs or containers)</source>
-        <translation>Übergeordnete Objekte von Computerobjekten (z.B. OUs oder Container)</translation>
-    </message>
-    <message>
         <source>Computer room attribute in computer objects</source>
-        <translation>Computerraumattribut in Computerobjekten</translation>
+        <translation>Attribut Computerraum in Computerobjekten</translation>
     </message>
     <message>
         <source>Test not applicable</source>
         <translation>Test nicht anwendbar</translation>
     </message>
     <message>
-        <source>Please change the computer room settings to use computer groups or parent objects of computer objects as computer rooms. Then the specified attribute instead of the common name of computer groups or parent objects will be queried. Otherwise you don&apos;t need to configure this attribute.</source>
-        <translation>Bitte ändern Sie die Computerraumeinstellungen, so dass Computergruppen oder übergeordnete Objekte von Computerobjekten als Computerräume verwendet werden. Dann wird das angegebene Attribut anstatt des Common Names von Computergruppen oder übergeordneten Objekten abgefragt. Andernfalls müssen Sie dieses Attribut nicht konfigurieren.</translation>
+        <source>Computer room name attribute</source>
+        <translation>Attribut Computerraumname</translation>
     </message>
     <message>
-        <source>Please change the computer room settings below to use parent objects of computer objects as computer rooms. Otherwise you don&apos;t need to configure this filter.</source>
-        <translation>Bitte ändern Sie die Computerraumeinstellungen unterhalb, so dass übergeordnete Objekte von Computerobjekten als Computerräume verwendet werden. Andernfalls müssen Sie diesen Filter nicht konfigurieren.</translation>
+        <source>e.g. name or description</source>
+        <translation>z.B. name oder description</translation>
+    </message>
+    <message>
+        <source>Filter for computer containers</source>
+        <translation>Filter für Computercontainer</translation>
+    </message>
+    <message>
+        <source>Computer containers or OUs</source>
+        <translation>Computercontainer oder OUs</translation>
+    </message>
+    <message>
+        <source>Please change the computer room settings to use computer groups or computer containers as computer rooms. Then the specified attribute instead of the common name of computer groups or container objects will be queried. Otherwise you don&apos;t need to configure this attribute.</source>
+        <translation>Bitte ändern Sie die Computerraumeinstellungen, so dass Computergruppen oder Computercontainer als Computerräume verwendet werden. Dann wird das angegebene Attribut anstatt des Common Names von Computergruppen oder übergeordneten Objekten abgefragt. Andernfalls müssen Sie dieses Attribut nicht konfigurieren.</translation>
+    </message>
+    <message>
+        <source>Please change the computer room settings below to use computer containers as computer rooms. Otherwise you don&apos;t need to configure this filter.</source>
+        <translation>Bitte ändern Sie die Computerraumeinstellungen unterhalb, so dass Computercontainer als Computerräume verwendet werden. Andernfalls müssen Sie diesen Filter nicht konfigurieren.</translation>
     </message>
 </context>
 <context>
@@ -1773,6 +1773,10 @@ Der öffentliche Schlüssel wird auf den Clientcomputern genutzt, um für jede e
     <message>
         <source>New computer</source>
         <translation>Neuer Computer</translation>
+    </message>
+    <message>
+        <source>Rooms &amp; computers</source>
+        <translation>Räume &amp; Computer</translation>
     </message>
 </context>
 <context>
@@ -2088,10 +2092,6 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
         <translation>Benutzerkonfiguration</translation>
     </message>
     <message>
-        <source>User interface &amp;&amp; behaviour</source>
-        <translation>Benutzeroberfläche &amp;&amp; Verhalten</translation>
-    </message>
-    <message>
         <source>Feature on computer double click:</source>
         <translation>Funktion bei Doppelklick:</translation>
     </message>
@@ -2112,32 +2112,12 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
         <translation>Deaktivierte Funktionen</translation>
     </message>
     <message>
-        <source>Only show current room in computer room management</source>
-        <translation>Nur aktuellen Raum in Computerraumverwaltung anzeigen</translation>
-    </message>
-    <message>
-        <source>Hide empty rooms from computer room management</source>
-        <translation>Leere Räume in Computerraumverwaltung ausblenden</translation>
-    </message>
-    <message>
-        <source>Allow adding rooms to computer room management manually</source>
-        <translation>Manuelles Hinzufügen von Räumen zur Computerraumverwaltung erlauben</translation>
-    </message>
-    <message>
-        <source>Hide local computer in computer room management</source>
-        <translation>Lokalen Computer in Computerraumverwaltung ausblenden</translation>
-    </message>
-    <message>
         <source>Perform access control at program start</source>
         <translation>Zugriffskontrolle beim Programmstart durchführen</translation>
     </message>
     <message>
         <source>Screenshots</source>
         <translation>Bildschirmfotos</translation>
-    </message>
-    <message>
-        <source>Hide computer filter field in computer room management</source>
-        <translation>Filterfeld für Computer in Computerraumverwaltung ausblenden</translation>
     </message>
     <message>
         <source>&lt;no feature&gt;</source>
@@ -2186,6 +2166,14 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
     <message>
         <source>Always open at start</source>
         <translation>Beim Start immer öffnen</translation>
+    </message>
+    <message>
+        <source>Actions such as rebooting or powering down computers</source>
+        <translation>Aktionen wie Computer neustarten oder ausschalten</translation>
+    </message>
+    <message>
+        <source>Show confirmation dialog for potential dangerous actions</source>
+        <translation>Bestätigungsdialog für potentiell gefährliche Aktionen anzeigen</translation>
     </message>
 </context>
 <context>
@@ -2266,6 +2254,22 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
     <message>
         <source>Power on/down or reboot a computer</source>
         <translation>Computer ein-/ausschalten oder neustarten</translation>
+    </message>
+    <message>
+        <source>Confirm reboot</source>
+        <translation>Neustart bestätigen</translation>
+    </message>
+    <message>
+        <source>Confirm power down</source>
+        <translation>Herunterfahren bestätigen</translation>
+    </message>
+    <message>
+        <source>Do you really want to reboot the selected computers?</source>
+        <translation>Möchten Sie wirklich die gewählten Computer neustarten?</translation>
+    </message>
+    <message>
+        <source>Do you really want to power down the selected computer?</source>
+        <translation>Möchten Sie wirklich die gewählten Computer herunterfahren?</translation>
     </message>
 </context>
 <context>
@@ -2448,7 +2452,7 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
     </message>
     <message>
         <source>enter search filter...</source>
-        <translation>Suchtfilter eingeben...</translation>
+        <translation>Suchfilter eingeben...</translation>
     </message>
 </context>
 <context>
@@ -2477,12 +2481,12 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
         <translation>Entsperren</translation>
     </message>
     <message>
-        <source>To have all user&apos;s full attention you can lock their computers using this button. In this mode all input devices are locked and the screen is black.</source>
-        <translation>Mit diesem Button können Sie alle Computer sperren, um die volle Aufmerksamkeit der Benutzer zu bekommen. In diesem Modus werden alle Eingabegeräte gesperrt und der Bildschirm ist schwarz.</translation>
-    </message>
-    <message>
         <source>Lock screen and input devices of a computer</source>
         <translation>Bildschirm und Eingabegeräte eines Computers sperren</translation>
+    </message>
+    <message>
+        <source>To reclaim all user&apos;s full attention you can lock their computers using this button. In this mode all input devices are locked and the screens are blacked.</source>
+        <translation>Mit diesem Button können Sie alle Computer sperren und die volle Aufmerksamkeit der Benutzer zurückerhalten. In diesem Modus werden alle Eingabegeräte gesperrt und die Bildschirme der Benutzer schwarz eingefärbt.</translation>
     </message>
 </context>
 <context>
@@ -2758,6 +2762,10 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
         <source>Builtin UltraVNC server configuration</source>
         <translation>Konfiguration des eingebauten UltraVNC-Servers</translation>
     </message>
+    <message>
+        <source>Enable dual monitor support</source>
+        <translation>Dual-Monitor-Unterstützung aktivieren</translation>
+    </message>
 </context>
 <context>
     <name>UserConfig</name>
@@ -2783,6 +2791,14 @@ Hinweis: wenn der Fehler einen Master- und Client-Computer betrifft, hängen Sie
     <message>
         <source>Click this button to logout users from all computers.</source>
         <translation>Klicken Sie auf diesen Button, um die Benutzer von allen Computern abzumelden.</translation>
+    </message>
+    <message>
+        <source>Confirm user logout</source>
+        <translation>Benutzerabmeldung bestätigen</translation>
+    </message>
+    <message>
+        <source>Do you really want to logout the selected users?</source>
+        <translation>Möchten Sie wirklich die gewählten Benutzer abmelden?</translation>
     </message>
 </context>
 <context>

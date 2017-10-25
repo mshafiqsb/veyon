@@ -1,7 +1,7 @@
 /*
- * LinuxUserSessionFunctions.h - declaration of LinuxUserSessionFunctions class
+ * WindowsUserInfoFunctions.h - declaration of WindowsUserInfoFunctions class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -22,22 +22,29 @@
  *
  */
 
-#ifndef LINUX_USER_SESSION_FUNCTIONS_H
-#define LINUX_USER_SESSION_FUNCTIONS_H
+#ifndef WINDOWS_USER_INFO_FUNCTIONS_H
+#define WINDOWS_USER_INFO_FUNCTIONS_H
 
-#include "PlatformUserSessionFunctions.h"
+#include "PlatformUserInfoFunctions.h"
 
-// clazy:excludeall=copyable-polymorphic
+// clazy:exclude=copyable-polymorphic
 
-class LinuxUserSessionFunctions : public PlatformUserSessionFunctions
+class WindowsUserInfoFunctions : public PlatformUserInfoFunctions
 {
 public:
+	QStringList userGroups();
+	QStringList groupsOfUser( const QString& username );
+
 	QStringList loggedOnUsers() override;
 
 private:
-	enum {
-		WhoProcessTimeout = 3000
-	};
+	static QString domainController();
+	static QStringList domainUserGroups();
+	static QStringList domainGroupsOfUser( const QString& username );
+
+	static QStringList localUserGroups();
+	static QStringList localGroupsOfUser( const QString& username );
+
 };
 
-#endif // LINUX_USER_SESSION_FUNCTIONS_H
+#endif // WINDOWS_USER_INFO_FUNCTIONS_H

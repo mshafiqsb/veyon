@@ -1,7 +1,7 @@
 /*
  * WindowsPlatformPlugin.h - declaration of WindowsPlatformPlugin class
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -28,7 +28,7 @@
 #include "PluginInterface.h"
 #include "PlatformPluginInterface.h"
 #include "WindowsNetworkFunctions.h"
-#include "WindowsUserSessionFunctions.h"
+#include "WindowsUserInfoFunctions.h"
 
 class WindowsPlatformPlugin : public QObject, PlatformPluginInterface, PluginInterface
 {
@@ -66,7 +66,7 @@ public:
 
 	QString copyright() const override
 	{
-		return QStringLiteral( "Tobias Doerffel" );
+		return QStringLiteral( "Tobias Junghans" );
 	}
 
 	Plugin::Flags flags() const override
@@ -79,14 +79,14 @@ public:
 		return &m_windowsNetworkFunctions;
 	}
 
-	PlatformUserSessionFunctions* userSessionFunctions() override
+	PlatformUserInfoFunctions* userInfoFunctions() override
 	{
-		return &m_windowsUserSessionFunctions;
+		return &m_windowsUserInfoFunctions;
 	}
 
 private:
 	WindowsNetworkFunctions m_windowsNetworkFunctions;
-	WindowsUserSessionFunctions m_windowsUserSessionFunctions;
+	WindowsUserInfoFunctions m_windowsUserInfoFunctions;
 
 };
 

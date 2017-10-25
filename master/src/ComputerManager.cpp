@@ -1,7 +1,7 @@
 /*
  * ComputerManager.cpp - maintains and provides a computer object list
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users.sourceforge.net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -263,12 +263,12 @@ void ComputerManager::updateComputerScreens()
 
 void ComputerManager::initRooms()
 {
-	for( const auto& hostName : m_localHostNames )
+	for( const auto& hostName : qAsConst( m_localHostNames ) )
 	{
 		qDebug() << "ComputerManager::initRooms(): initializing rooms for host name" << hostName;
 	}
 
-	for( const auto& address : m_localHostAddresses )
+	for( const auto& address : qAsConst( m_localHostAddresses ) )
 	{
 		qDebug() << "ComputerManager::initRooms(): initializing rooms for host address" << address.toString();
 	}
@@ -312,7 +312,7 @@ void ComputerManager::initNetworkObjectLayer()
 
 		localHostNames.append( m_localHostNames );
 
-		for( const auto& address : m_localHostAddresses )
+		for( const auto& address : qAsConst( m_localHostAddresses ) )
 		{
 			localHostNames.append( address.toString() );
 		}
@@ -509,10 +509,10 @@ void ComputerManager::startComputerControlInterface( Computer& computer, int ind
 			 &m_featureManager, &FeatureManager::handleMasterFeatureMessage );
 
 	connect( &computer.controlInterface(), &ComputerControlInterface::userChanged,
-			 [&] () { updateUser( computer ); } );
+			 this, [&] () { updateUser( computer ); } );
 
 	connect( &computer.controlInterface(), &ComputerControlInterface::activeFeaturesChanged,
-			 [=] () { emit activeFeaturesOfComputerChanged( index ); } );
+			 this, [=] () { emit activeFeaturesOfComputerChanged( index ); } );
 }
 
 

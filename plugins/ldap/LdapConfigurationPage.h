@@ -1,7 +1,7 @@
 /*
  * LdapConfigurationPage.h - header for the LdapConfigurationPage class
  *
- * Copyright (c) 2016-2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2016-2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -63,7 +63,7 @@ private slots:
 	void testUserGroupsFilter();
 	void testComputersFilter();
 	void testComputerGroupsFilter();
-	void testComputerParentsFilter();
+	void testComputerContainersFilter();
 	void testGroupsOfUser();
 	void testGroupsOfComputer();
 	void testComputerObjectByIpAddress();

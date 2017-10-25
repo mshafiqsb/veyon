@@ -1,7 +1,7 @@
 /*
- * PlatformUserSessionFunctions.h - interface class for platform plugins
+ * InternetAccessControlConfiguration.h - INTERNET_ACCESS_CONTROL-specific configuration values
  *
- * Copyright (c) 2017 Tobias Doerffel <tobydox/at/users/dot/sf/dot/net>
+ * Copyright (c) 2017 Tobias Junghans <tobydox@users.sf.net>
  *
  * This file is part of Veyon - http://veyon.io
  *
@@ -22,18 +22,26 @@
  *
  */
 
-#ifndef PLATFORM_USER_SESSION_FUNCTIONS_H
-#define PLATFORM_USER_SESSION_FUNCTIONS_H
+#ifndef INTERNET_ACCESS_CONTROL_CONFIGURATION_H
+#define INTERNET_ACCESS_CONTROL_CONFIGURATION_H
 
-#include "VeyonCore.h"
+#include "Configuration/Proxy.h"
 
-// clazy:excludeall=copyable-polymorphic
+#define FOREACH_INTERNET_ACCESS_CONTROL_CONFIG_PROPERTY(OP) \
+	OP( InternetAccessControlConfiguration, m_configuration, UUID, backend, setBackend, "Backend", "InternetAccessControl" );	\
 
-class VEYON_CORE_EXPORT PlatformUserSessionFunctions
+
+class InternetAccessControlConfiguration : public Configuration::Proxy
 {
+	Q_OBJECT
 public:
-	virtual QStringList loggedOnUsers() = 0;
+	InternetAccessControlConfiguration( QObject* parent = nullptr );
 
-};
+	FOREACH_INTERNET_ACCESS_CONTROL_CONFIG_PROPERTY(DECLARE_CONFIG_PROPERTY)
 
-#endif // PLATFORM_USER_SESSION_FUNCTIONS_H
+public slots:
+	void setBackend( QUuid );
+
+} ;
+
+#endif
